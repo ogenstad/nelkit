@@ -7,7 +7,10 @@ s = os.sep
 
 
 BASE_DIR = 'tests/modules/compare_configs/data/'
-BASE_RULES = 'tests/modules/compare_configs/data/base_rules.yml'
+if s == '/':
+    BASE_RULES = 'tests/modules/compare_configs/data/base_rules.yml'
+else:
+    BASE_RULES = 'tests/modules/compare_configs/data/base_rules_win.yml'
 
 
 def test_base_function():
