@@ -1,7 +1,9 @@
 """Tests for compare module."""
 import pytest
+import os
 from nelkit.exceptions import NelkitException
 from nelkit.modules.compare_configs.settings import CompareConfigs
+s = os.sep
 
 
 BASE_DIR = 'tests/modules/compare_configs/data/'
@@ -36,4 +38,5 @@ basic_diff = """--- baseline
 def test_basic_diff():
     """Basic basic diff of the compare module, and check that no exceptions are raised."""
     run = CompareConfigs(settings_file=BASE_RULES)
-    assert basic_diff == run._diff['tests/modules/compare_configs/data/configs/basic/file_b.ios'][2]
+    assert basic_diff == run._diff['tests%smodules%scompare_configs%sdata%sconfigs%sbasic%sfile_b.ios' % (
+        s, s, s, s, s, s)][2]
